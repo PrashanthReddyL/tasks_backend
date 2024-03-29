@@ -24,6 +24,9 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
 
+      - name: List contents of build/libs directory
+        run: ls -l ${GITHUB_WORKSPACE}/build/libs        
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
