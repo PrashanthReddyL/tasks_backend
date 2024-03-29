@@ -26,6 +26,11 @@ dependencies {
 
 }
 
-tasks.named('test') {
-	useJUnitPlatform()
+bootJar {
+	archiveFileName = "${project.name}.jar" // Customize the JAR file name if needed
+	enabled = true
+}
+
+jar {
+	enabled = false
 }
