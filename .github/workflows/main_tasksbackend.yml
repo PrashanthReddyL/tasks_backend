@@ -61,6 +61,9 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_FFDA7EACAB5046689A13CF883592E80A }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_F7EF10F853F74E21957D899EF3D9B85E }}
 
+      - name: List contents of downloaded artifact
+        run: ls -l ${{ github.workspace }}/tasksbackend
+
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
