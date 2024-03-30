@@ -33,6 +33,11 @@ public class TaskController {
         return new ResponseEntity<>(tasks, HttpStatus.OK);
     }
 
+    @GetMapping("/test")
+    public ResponseEntity<String> testEndpoint() {
+        return new ResponseEntity<>("Success", HttpStatus.OK);
+    }
+
     @GetMapping("/{id}")
     public Optional<Task> getTaskById(@PathVariable String id) {
         return taskService.getTaskById(id);
