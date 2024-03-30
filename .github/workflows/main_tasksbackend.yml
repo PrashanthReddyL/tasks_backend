@@ -62,7 +62,7 @@ jobs:
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_F7EF10F853F74E21957D899EF3D9B85E }}
 
       - name: List contents of downloaded artifact
-        run: ls -l ${{ github.workspace }}/tasksbackend
+        run: ls -l ${{ github.workspace }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
