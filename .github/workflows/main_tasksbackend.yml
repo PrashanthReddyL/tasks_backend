@@ -67,8 +67,6 @@ jobs:
         with:
           app-name: 'tasksbackend'
           slot-name: 'Production'
-          package: '${{ github.workspace }}\build\libs\tasks.jar'
+          package: '${{ github.workspace }}/build/libs/*.jar'
 
-      - name: Publish Artifacts
-        uses: PublishBuildArtifacts@1
           
