@@ -69,5 +69,6 @@ jobs:
           slot-name: 'Production'
           package: '${{ github.workspace }}\build\libs\tasks.jar'
 
-      - name: PublishBuildArtifacts@1
+      - name: Publish Artifacts
+        uses: PublishBuildArtifacts@1
           
