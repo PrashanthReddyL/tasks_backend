@@ -30,7 +30,6 @@ jobs:
         
       - name: Build with Gradle
         run: |
-          cd tasks_backend
           gradlew.bat build
 
       - name: Upload artifact for deployment job
