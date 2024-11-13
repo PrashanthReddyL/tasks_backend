@@ -21,7 +21,13 @@ jobs:
         with:
           java-version: '8'
           distribution: 'zulu'
+          
+      - name: Check current directory
+        run: pwd  # Prints the current directory
 
+      - name: List all files in the workspace
+        run: ls -R 
+        
       - name: Build with Gradle
         run: ./gradlew build
         working-directory: './tasks_backend'
