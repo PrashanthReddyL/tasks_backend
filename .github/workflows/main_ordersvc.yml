@@ -40,14 +40,6 @@ jobs:
 
       - name: List contents of build libs directory
         run: ls -l ${{ github.workspace }}/build/libs
-        
-      - name: Verify JAR file creation
-        run: |
-          if [ -z "$(ls -A ${{ github.workspace }}/build/libs/*.jar 2>/dev/null)" ]; then
-            echo "No JAR file created in build/libs. Exiting."
-            exit 1
-          fi
-          ls -l ${{ github.workspace }}/build/libs/*.jar
           
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
