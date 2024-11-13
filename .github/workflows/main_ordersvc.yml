@@ -63,16 +63,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
-          name: java-app
-          
-      - name: Verify downloaded artifact
-        run: |
-          echo "Verifying downloaded artifact contents:"
-          ls -R
-          if [ -z "$(ls -A *.jar 2>/dev/null)" ]; then
-            echo "No JAR file found after download. Exiting."
-            exit 1
-          fi      
+          name: java-app     
           
       - name: Login to Azure
         uses: azure/login@v2
