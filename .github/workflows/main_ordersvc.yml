@@ -40,7 +40,15 @@ jobs:
 
       - name: List contents of build libs directory
         run: ls -l ${{ github.workspace }}/build/libs
-
+        
+      - name: Verify JAR file creation
+        run: |
+          if [ -z "$(ls -A ${{ github.workspace }}/build/libs/*.jar 2>/dev/null)" ]; then
+            echo "No JAR file created in build/libs. Exiting."
+            exit 1
+          fi
+          ls -l ${{ github.workspace }}/build/libs/*.jar
+          
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
@@ -64,7 +72,16 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: java-app
-        
+          
+      - name: Verify downloaded artifact
+        run: |
+          echo "Verifying downloaded artifact contents:"
+          ls -R
+          if [ -z "$(ls -A *.jar 2>/dev/null)" ]; then
+            echo "No JAR file found after download. Exiting."
+            exit 1
+          fi      
+          
       - name: Login to Azure
         uses: azure/login@v2
         with:
