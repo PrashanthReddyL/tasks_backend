@@ -29,8 +29,9 @@ jobs:
         run: ls -R 
         
       - name: Build with Gradle
-        run: tasks_backend\\gradlew.bat build
-        working-directory: tasks_backend
+        run: |
+          cd tasks_backend
+          gradlew.bat build
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
