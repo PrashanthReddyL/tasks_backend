@@ -30,7 +30,7 @@ jobs:
         
       - name: Build with Gradle
         run: |
-          gradlew.bat build
+          ./gradlew build
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
